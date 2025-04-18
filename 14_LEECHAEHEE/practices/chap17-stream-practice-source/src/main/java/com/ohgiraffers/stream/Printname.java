@@ -11,8 +11,6 @@ public class Printname {
                 .filter(name -> name.length() >= 5)
                 .map(name -> name.toUpperCase())
                 .forEach(System.out::println);
-        ;
-
 // 출력값
 // ALICE
 // CHARLIE

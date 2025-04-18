@@ -16,7 +16,7 @@ public class ResultPrinter {
     }
 
     public void printBoard(BoardDTO b) {
-
+        System.out.println(b);
     }
 
     public void errorPage(String msg) {

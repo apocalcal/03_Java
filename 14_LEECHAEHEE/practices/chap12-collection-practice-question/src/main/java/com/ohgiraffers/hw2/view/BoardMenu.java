@@ -1,6 +1,7 @@
 package com.ohgiraffers.hw2.view;
 
 import com.ohgiraffers.hw2.controller.BoardManager;
+import com.ohgiraffers.hw2.model.comparator.*;
 
 import java.util.Scanner;
 
@@ -28,13 +29,15 @@ public class BoardMenu {
             switch (choice) {
                 case 1: bm.insertBoard(ib.inputBoard()); break;
                 case 2: bm.selectAllList(); break;
-                case 3: bm.selectOneBoard(ib.inputBoardNo());break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
-                case 8: break;
-                case 9: break;
+                case 3: bm.selectOneBoard(ib.inputBoardNo()); break;
+                case 4: bm.updateBoardTitle(ib.inputBoardNo(), ib.inputBoardTitle()); break;
+                case 5: bm.updateBoardContent(ib.inputBoardNo(), ib.inputBoardContent()); break;
+                case 6: bm.deleteBoard(ib.inputBoardNo()); break;
+                case 7: bm.searchBoard(ib.inputBoardTitle()); break;
+                case 8: sortSubMenu(); break;
+                case 9:
+                    System.out.println("프로그램이 종료되었습니다.");
+                    break;
                 default:
                     System.out.println("잘못된 번호를 입력하셨습니다.");
             }
@@ -58,13 +61,13 @@ public class BoardMenu {
             System.out.print(submenu);
             int choice = sc.nextInt();
             switch (choice) {
-                case 1: break;
-                case 2: break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
+                case 1: bm.sortList(new AscBoardNo()) ; break;
+                case 2: bm.sortList(new DescBoardNo()); break;
+                case 3: bm.sortList(new AscBoardDate()); break;
+                case 4: bm.sortList(new DescBoardDate()); break;
+                case 5: bm.sortList(new AscBoardTitle()); break;
+                case 6: bm.sortList(new DescBoardTitle()); break;
+                case 7: mainMenu(); break;
                 default:
                     System.out.println("잘못된 번호를 입력하셨습니다.");
             }
